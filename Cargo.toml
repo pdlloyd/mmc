@@ -1,14 +1,14 @@
 [package]
-name = "eframe_template"
+name = "mmc"
 version = "0.1.0"
-authors = ["Emil Ernerfeldt <emil.ernerfeldt@gmail.com>"]
+authors = ["Patrick D. Lloyd <patrick@pdlloyd.com>"]
 edition = "2021"
-rust-version = "1.72"
+rust-version = "1.76"
 
 
 [dependencies]
-egui = "0.26.0"
-eframe = { version = "0.26.0", default-features = false, features = [
+egui = { path = "../egui/crates/egui" }
+eframe = { path = "../egui/crates/eframe", default-features = false, features = [
     "accesskit",     # Make egui comptaible with screen readers. NOTE: adds a lot of dependencies.
     "default_fonts", # Embed the default egui fonts.
     "glow",          # Use the glow rendering backend. Alternative: "wgpu".
@@ -21,7 +21,7 @@ serde = { version = "1", features = ["derive"] }
 
 # native:
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-env_logger = "0.10"
+env_logger = "0.11"
 
 # web:
 [target.'cfg(target_arch = "wasm32")'.dependencies]
