@@ -18,7 +18,10 @@ jobs:
   build-github-pages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 # repo checkout
+      - uses: actions/checkout@v4 # This repo
+      - uses: actions/checkout@v4 # Egui repo for tests
+        with: 
+          repository: emilk/egui
       - uses: actions-rs/toolchain@v1 # get rust toolchain for wasm
         with:
           profile: minimal
